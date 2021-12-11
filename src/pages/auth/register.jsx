@@ -9,6 +9,7 @@ import { REGISTRO } from 'graphql/auth/mutations';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { useAuth } from 'context/authContext';
+import logo from '../logo7.svg'
 
 const Register = () => {
   const { setToken } = useAuth();
@@ -33,10 +34,11 @@ const Register = () => {
   }, [dataMutation, setToken, navigate]);
 
   return (
-    <div className='flex flex-col h-full w-full items-center justify-center'>
-      <h1 className='text-3xl font-bold my-4'>Regístrate</h1>
+    <div className='wrappers'>
+    
+      <h1 className='text-xl font-bold my-4'>Regístrate</h1>
       <form className='flex flex-col' onSubmit={submitForm} onChange={updateFormData} ref={form}>
-        <div className='grid grid-cols-2 gap-5'>
+        <div className='grid grid-cols-2 gap-2'>
           <Input label='Nombre:' name='nombre' type='text' required />
           <Input label='Apellido:' name='apellido' type='text' required />
           <Input label='Documento:' name='identificacion' type='text' required />
@@ -52,7 +54,7 @@ const Register = () => {
       </form>
       <span>¿Ya tienes una cuenta?</span>
       <Link to='/auth/login'>
-        <span className='text-blue-700'>Inicia sesión</span>
+        <span className='text-blue-700'>Iniciar sesión</span>
       </Link>
     </div>
   );
