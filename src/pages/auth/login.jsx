@@ -7,6 +7,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from 'graphql/auth/mutations';
 import { useAuth } from 'context/authContext';
 import { useNavigate } from 'react-router-dom';
+import logo from '../logo7.svg'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,8 +35,9 @@ const Login = () => {
   }, [dataMutation, setToken, navigate]);
 
   return (
-    <div className='flex flex-col items-center justify-center w-full h-full p-10'>
-      <h1 className='text-xl font-bold text-gray-900'>Iniciar sesión</h1>
+    <div className='wrapper' >
+      <img src={logo} alt=""></img>
+      <h1 className='text-xl font-bold text-gray-900 '>Iniciar sesión</h1>
       <form className='flex flex-col' onSubmit={submitForm} onChange={updateFormData} ref={form}>
         <Input name='correo' type='email' label='Correo' required={true} />
         <Input name='password' type='password' label='Contraseña' required={true} />
@@ -46,9 +48,14 @@ const Login = () => {
           text='Iniciar Sesión'
         />
       </form>
-      <span>¿No tienes una cuenta?</span>
+      <span>¿Deseas registrarte? </span>
+  
+
+      
+      
       <Link to='/auth/register'>
-        <span className='text-blue-700'>Regístrate</span>
+        <br></br>
+        <span className='text-blue-700'>Registrar</span>
       </Link>
     </div>
   );
