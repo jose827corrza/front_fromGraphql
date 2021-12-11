@@ -35,9 +35,9 @@ const IndexProyectos = () => {
         </div>
         <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
           <div className='my-2 self-end'>
-            <button className='bg-indigo-500 text-gray-50 p-2 rounded-lg shadow-lg hover:bg-indigo-400'>
-              <Link to='/proyectos/nuevo'>Crear nuevo proyecto</Link>
-            </button>
+            
+              <Link to='/proyectos/nuevo' className="btn btn-primary">Crear nuevo proyecto</Link>
+            
           </div>
         </PrivateComponent>
         {queryData.Proyectos.map((proyecto) => {
@@ -57,7 +57,7 @@ const AccordionProyecto = ({ proyecto }) => {
       <AccordionStyled>
         <AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down' />}>
           <div className='flex w-full justify-between'>
-            <div className='uppercase font-bold text-gray-100 '>
+            <div className='uppercase font-bold text-white-100 '>
               {proyecto.nombre} - {proyecto.estado}
             </div>
           </div>
@@ -78,7 +78,7 @@ const AccordionProyecto = ({ proyecto }) => {
               inscripciones={proyecto.inscripciones}
             />
           </PrivateComponent>
-          <div>Liderado Por: {proyecto.lider.correo}</div>
+          <div>Liderado Por: {proyecto.lider.nombre}</div>
           <div className='flex'>
             {proyecto.objetivos.map((objetivo) => {
               return <Objetivo tipo={objetivo.tipo} descripcion={objetivo.descripcion} />;
