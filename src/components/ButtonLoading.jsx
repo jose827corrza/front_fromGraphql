@@ -8,7 +8,7 @@ const ButtonLoading = ({ disabled, loading, text, onClick = () => {} }) => {
       onClick={onClick}
       disabled={disabled}
       type='submit'
-      className='btn btn-primary'
+      className='btn btn-outline-primary'
     >
       {loading ? <ReactLoading data-testid="loading-in-button" type='spin' height={30} width={30} /> : text}
     </button>
