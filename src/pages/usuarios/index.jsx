@@ -19,15 +19,18 @@ const IndexUsuarios = () => {
 
   return (
     <PrivateRoute roleList={['ADMINISTRADOR']}>
-      <div>
-        <h1>Datos Usuarios:</h1>
-        <table className='tabla'>
-          <thead>
+     
+      <div className='datos'>
+      <span className="my-2 text-xl font-bold text-center">Usuarios registrados</span>
+        <br />
+        <br />
+        <table className='table table-hover'>
+           <thead className="thead-light">
             <tr>
+            <th>Identificación</th>
               <th>Nombre</th>
               <th>Apellidos</th>
               <th>Correo</th>
-              <th>Identificación</th>
               <th>Rol</th>
               <th>Estado</th>
               <th>Editar</th>
@@ -39,15 +42,15 @@ const IndexUsuarios = () => {
                 {data.Usuarios.map((u) => {
                   return (
                     <tr key={u._id}>
+                      <td>{u.identificacion}</td>
                       <td>{u.nombre}</td>
                       <td>{u.apellido}</td>
                       <td>{u.correo}</td>
-                      <td>{u.identificacion}</td>
                       <td>{Enum_Rol[u.rol]}</td>
                       <td>{Enum_EstadoUsuario[u.estado]}</td>
                       <td>
                         <Link to={`/usuarios/editar/${u._id}`}>
-                          <i className='fas fa-pen text-yellow-600 hover:text-yellow-400 cursor-pointer' />
+                          <i className='fas fa-pen text-blue-600 hover:text-gray-400 cursor-pointer' />
                         </Link>
                       </td>
                     </tr>

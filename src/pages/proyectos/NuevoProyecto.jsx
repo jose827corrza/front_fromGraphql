@@ -53,26 +53,27 @@ const NuevoProyecto = () => {
     });
   };
 
-  if (loading) return <div>...Loading</div>;
+  if (loading) return <div>...Cargando</div>;
 
   return (
-    <div className='p-10 flex flex-col items-center'>
+    <div className='editarusuario'>
       <div className='self-start'>
         <Link to='/proyectos'>
           <i className='fas fa-arrow-left' />
         </Link>
       </div>
       <h1 className='text-2xl font-bold text-gray-900'>Crear Nuevo Proyecto</h1>
-      <form ref={form} onChange={updateFormData} onSubmit={submitForm}>
+        <form ref={form} onChange={updateFormData} onSubmit={submitForm}>
         <Input name='nombre' label='Nombre del Proyecto' required={true} type='text' />
-        <Input name='presupuesto' label='Presupuesto del Proyecto' required={true} type='number' />
+        <Input name='presupuesto' label='Presupuesto' required={true} type='number' />
         <Input name='fechaInicio' label='Fecha de Inicio' required={true} type='date' />
         <Input name='fechaFin' label='Fecha de Fin' required={true} type='date' />
         <DropDown label='Líder' options={listaUsuarios} name='lider' required={true} />
         <Objetivos />
+        <br />
         <ButtonLoading text='Crear Proyecto' loading={false} disabled={false} />
       </form>
-    </div>
+      </div>
   );
 };
 
@@ -122,7 +123,7 @@ const FormObjetivo = ({ id }) => {
       <Input
         name={`nested||objetivos||${id}||descripcion`}
         label='Descripción'
-        type='text'
+        type='textarea'
         required={true}
       />
       <DropDown

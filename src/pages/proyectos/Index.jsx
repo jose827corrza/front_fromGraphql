@@ -36,7 +36,7 @@ const IndexProyectos = () => {
         <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
           <div className='my-2 self-end'>
             
-              <Link to='/proyectos/nuevo' className="btn btn-primary">Crear nuevo proyecto</Link>
+              <Link to='/proyectos/nuevo' className="btn">Crear nuevo proyecto</Link>
             
           </div>
         </PrivateComponent>
@@ -54,22 +54,24 @@ const AccordionProyecto = ({ proyecto }) => {
   const [showDialog, setShowDialog] = useState(false);
   return (
     <>
-      <AccordionStyled>
+      <AccordionStyled >
         <AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down' />}>
           <div className='flex w-full justify-between'>
-            <div className='uppercase font-bold text-white-100 '>
-              {proyecto.nombre} - {proyecto.estado}
+            <div className='uppercase font-bold text-gray-100'>
+            <span> {proyecto.nombre} - {proyecto.estado}</span>
+             
             </div>
           </div>
         </AccordionSummaryStyled>
         <AccordionDetailsStyled>
           <PrivateComponent roleList={['ADMINISTRADOR']}>
+          Modificar Estado
             <i
-              className='mx-4 fas fa-pen text-yellow-600 hover:text-yellow-400'
+              className='mx-4 fas fa-pen text-blue-600 hover:text-gray-400'
               onClick={() => {
                 setShowDialog(true);
               }}
-            />
+            /> 
           </PrivateComponent>
           <PrivateComponent roleList={['ESTUDIANTE']}>
             <InscripcionProyecto
@@ -78,7 +80,7 @@ const AccordionProyecto = ({ proyecto }) => {
               inscripciones={proyecto.inscripciones}
             />
           </PrivateComponent>
-          <div>Liderado Por: {proyecto.lider.nombre}</div>
+          <div>Lider del proyecto: {proyecto.lider.nombre}</div>
           <div className='flex'>
             {proyecto.objetivos.map((objetivo) => {
               return <Objetivo tipo={objetivo.tipo} descripcion={objetivo.descripcion} />;
