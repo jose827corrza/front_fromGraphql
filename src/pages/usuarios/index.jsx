@@ -24,8 +24,8 @@ const IndexUsuarios = () => {
       <span className="my-2 text-xl font-bold text-center">Usuarios registrados</span>
         <br />
         <br />
-        <table className='table table-hover'>
-           <thead className="thead-light">
+        <table className='tabla'>
+           <thead>
             <tr>
             <th>Identificación</th>
               <th>Nombre</th>

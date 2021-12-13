@@ -4,6 +4,7 @@
 
 .sidebar {
   @apply w-64  shadow flex-col justify-between;
+
 }
 
 .sidebar-route {

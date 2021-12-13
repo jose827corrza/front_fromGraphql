@@ -6,7 +6,7 @@ import banner from '../banner.jpeg'
 
 const SidebarLinks = () => {
   return (
-    <ul className='mt-12'>
+    <ul className='mt-5'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
       <PrivateComponent roleList={['ADMINISTRADOR']}>
         <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user' />
@@ -42,8 +42,9 @@ const Logout = () => {
 const Logo = () => {
   return (
     <div className='py-3 w-full flex flex-col items-center justify-center'>
-      <img src={banner} alt='Logo' className='h-16' />
-      <span className='my-2 text-xl font-bold text-center'>7TREINTA Projects Manager</span>
+      <img src={banner} alt='Logo' />
+      <br />
+      <span className='my-2 font-bold text-center'>Administrador de proyectos Misión TIC</span>
     </div>
   );
 };
@@ -93,8 +94,8 @@ const SidebarRoute = ({ to, title, icon }) => {
         to={to}
         className={({ isActive }) =>
           isActive
-            ? 'sidebar-route text-white bg-indigo-700'
-            : 'sidebar-route text-gray-900 hover:text-white hover:bg-green-400'
+            ? 'sidebar-route text-white bg-blue-700'
+            : 'sidebar-route text-gray-900 hover:text-white hover:bg-gray-400'
         }
       >
         <div className='flex items-center-left'>
