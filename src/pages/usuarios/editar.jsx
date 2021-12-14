@@ -34,11 +34,14 @@ const EditarUsuario = () => {
     });
   };
 
+
   useEffect(() => {
     if (mutationData) {
       toast.success('Usuario modificado correctamente');
     }
   }, [mutationData]);
+
+
 
   useEffect(() => {
     if (mutationError) {
