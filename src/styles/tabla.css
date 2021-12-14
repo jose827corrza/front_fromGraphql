@@ -7,15 +7,17 @@
 .tabla td,
 .tabla th {
   padding: 8px;
-  border: 1px solid #ddd;
+ 
+  border-radius: 5px;
 }
 
 .tabla th {
-  background-color: #2f19f0;
+  background-color: #1d4ed8;
   color: white;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
+  border-radius: 5px;
 }
 
 .tabla tr:nth-child(even) {

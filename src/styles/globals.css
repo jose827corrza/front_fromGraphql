@@ -4,6 +4,7 @@
 
 .sidebar {
   @apply w-64  shadow flex-col justify-between;
+
 }
 
 .sidebar-route {
@@ -40,7 +41,7 @@ body {
 .wrappers{
   max-width: 600px;
   min-height: 500px;
-  margin: 80px auto;
+  margin: 40px auto;
   padding: 40px 30px 30px 30px;
   background-color: #ecf0f3;
   border-radius: 15px;
@@ -97,7 +98,7 @@ body {
     height: 40px;
     background-color: #143d99;
     color: #fff;
-    border-radius: 25px;
+    border-radius: 5px;
     box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
     letter-spacing: 1.3px
 }
@@ -112,10 +113,21 @@ body {
   height: 40px;
   background-color: #143d99;
   color: #fff;
-  border-radius: 25px;
+  border-radius: 5px;
   box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   letter-spacing: 1.3px
 }
+
+.btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    background-color: #143d99;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+    letter-spacing: 1.3px
+  }
 
 .wrappers .btn:hover {
   background-color: #039BE5
@@ -132,6 +144,42 @@ body {
 .wrapper a:hover {
     color: #039BE5
 }
+
+.datos {
+    max-width: 100%;
+    min-height: 100%;
+    margin: 80px auto;
+    padding: 5px 10px 10px 10px;
+    background-color: #fffffff5;
+   
+}
+
+.editarusuario{
+    max-width: 700px;
+    min-height: 500px;
+    margin: 10px auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff
+  }
+ 
+  
+.editarusuario .btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    background-color: #143d99;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+    letter-spacing: 1.3px
+  }
+  
+.editarusuario .btn:hover {
+    background-color: #039BE5
+  }
+  
 
 @media(max-width: 380px) {
     .wrapper {
