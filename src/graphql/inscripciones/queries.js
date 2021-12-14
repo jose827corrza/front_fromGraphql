@@ -7,16 +7,6 @@ const GET_INSCRIPCIONES = gql`
       estado
       estudiante {
         _id
-        nombre
-        apellido
-        correo
-      }
-      proyecto {
-        _id
-        nombre
-        lider {
-          _id
-        }
       }
     }
   }
