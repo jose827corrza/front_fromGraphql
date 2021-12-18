@@ -25,4 +25,23 @@ const PROYECTOS = gql`
   }
 `;
 
-export { PROYECTOS };
+const PROYECTO = gql`
+  query Proyecto($_id: String!){
+    Proyecto(_id: $_id){
+      _id 
+      nombre
+      estado
+      objetivos {
+        descripcion
+        tipo
+      }
+      lider {
+        _id
+        correo
+        nombre
+      }
+    }
+  }
+`;
+
+export { PROYECTOS, PROYECTO };

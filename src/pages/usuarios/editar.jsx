@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from 'graphql/usuarios/queries';
@@ -12,6 +12,7 @@ import { Enum_EstadoUsuario } from 'utils/enums';
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
+  const[modo, setModo] = useState();//true para crear, false para editar
   const { _id } = useParams();
 
   const {
@@ -35,6 +36,7 @@ const EditarUsuario = () => {
   };
 
   useEffect(() => {
+    
     if (mutationData) {
       toast.success('Usuario modificado correctamente');
     }

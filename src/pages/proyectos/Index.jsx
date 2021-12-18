@@ -36,7 +36,7 @@ const IndexProyectos = () => {
         <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
           <div className='my-2 self-end'>
             
-              <Link to='/proyectos/nuevo' className="btn">Crear nuevo proyecto</Link>
+              <Link to={"/proyectos/nuevo"} className="btn">Crear nuevo proyecto</Link>
             
           </div>
         </PrivateComponent>
@@ -83,7 +83,7 @@ const AccordionProyecto = ({ proyecto }) => {
           <div>Lider del proyecto: {proyecto.lider.nombre}</div>
           <div className='flex'>
             {proyecto.objetivos.map((objetivo) => {
-              return <Objetivo tipo={objetivo.tipo} descripcion={objetivo.descripcion} />;
+              return <Objetivo tipo={objetivo.tipo} descripcion={objetivo.descripcion} idProyecto={proyecto._id} />;
             })}
           </div>
         </AccordionDetailsStyled>
@@ -134,13 +134,13 @@ const FormEditProyecto = ({ _id }) => {
   );
 };
 
-const Objetivo = ({ tipo, descripcion }) => {
+const Objetivo = ({ tipo, descripcion, idProyecto }) => {
   return (
     <div className='mx-5 my-4 bg-gray-50 p-8 rounded-lg flex flex-col items-center justify-center shadow-xl'>
       <div className='text-lg font-bold'>{tipo}</div>
       <div>{descripcion}</div>
       <PrivateComponent roleList={['ADMINISTRADOR']}>
-        <div>Editar</div>
+        <Link className="btn" to={`/proyectos/${idProyecto}`}>Editar</Link>
       </PrivateComponent>
     </div>
   );

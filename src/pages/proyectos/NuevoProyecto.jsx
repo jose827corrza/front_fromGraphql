@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import Input from 'components/Input';
 import { GET_USUARIOS } from 'graphql/usuarios/queries';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import DropDown from 'components/Dropdown';
 import ButtonLoading from 'components/ButtonLoading';
 import useFormData from 'hooks/useFormData';
@@ -10,22 +10,33 @@ import { Enum_TipoObjetivo } from 'utils/enums';
 import { nanoid } from 'nanoid';
 import { ObjContext } from 'context/objContext';
 import { useObj } from 'context/objContext';
-import { CREAR_PROYECTO } from 'graphql/proyectos/mutations';
+import { CREAR_PROYECTO, EDITAR_PROYECTO } from 'graphql/proyectos/mutations';
+import { PROYECTOS, PROYECTO } from 'graphql/proyectos/queries';
 
 const NuevoProyecto = () => {
+  const {_id} = useParams();
   const { form, formData, updateFormData } = useFormData();
   const [listaUsuarios, setListaUsuarios] = useState({});
+  const { data: queryData, loadingProyectos, errorProyectos } = useQuery(PROYECTO);
   const { data: data, loading, error } = useQuery(GET_USUARIOS, {
     variables: {
       filtro: { rol: 'LIDER', estado: 'AUTORIZADO' },
     },
   });
+  const [nombre, setNombre] = useState();
 
   const [crearProyecto, { data: mutationData, loading: mutationLoading, error: mutationError }] =
     useMutation(CREAR_PROYECTO);
+  const [editarProyecto, { data: mutationDataEditar, loading: mutationLoadingEditar, error: mutationErrorEditar }] =
+    useMutation(EDITAR_PROYECTO);
 
   useEffect(() => {
     console.log(data);
+    if(_id == "nuevo"){
+      setNombre(queryData.Proyecto.nombre);
+    }else{
+      setNombre("");
+    }
     if (data) {
       const lu = {};
       data.Usuarios.forEach((elemento) => {
@@ -36,7 +47,7 @@ const NuevoProyecto = () => {
       console.log(lu);
     }
     
-  }, [data]);
+  }, [data, _id]);
 
   useEffect(() => {
     console.log('data mutation', mutationData);
@@ -62,9 +73,9 @@ const NuevoProyecto = () => {
           <i className='fas fa-arrow-left' />
         </Link>
       </div>
-      <h1 className='text-2xl font-bold text-gray-900'>Crear Nuevo Proyecto</h1>
+      <h1 className='text-2xl font-bold text-gray-900'>{_id === "nuevo" ? "Crear Nuevo Proyecto" : "Editar Proyecto"}</h1>
         <form ref={form} onChange={updateFormData} onSubmit={submitForm}>
-        <Input name='nombre' label='Nombre del Proyecto' required={true} type='text' />
+        <Input name='nombre' label='Nombre del Proyecto' required={true} type='text' defaultValue={nombre} />
         <Input name='presupuesto' label='Presupuesto' required={true} type='number' />
         <Input name='fechaInicio' label='Fecha de Inicio' required={true} type='date' />
         <Input name='fechaFin' label='Fecha de Fin' required={true} type='date' />
