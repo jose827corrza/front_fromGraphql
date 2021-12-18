@@ -13,3 +13,5 @@ Paso 2: navegar hacia la carpeta e instalar dependencias
 Paso 3: ejecutar el proyecto
 
 `yarn start`
+
+Hoy es diciembre 18 del 2022
